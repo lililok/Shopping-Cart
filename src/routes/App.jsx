@@ -6,11 +6,9 @@ function App() {
   return (
     <>
       <nav>
-        <ul>
-          <li>
-            <Link to="cart">Cart page</Link>
-          </li>
-        </ul>
+        <Link to="/">Landing</Link>
+        <Link to="shop">Shop page</Link>
+        <Link to="cart">Cart page</Link>
       </nav>
     </>
   )

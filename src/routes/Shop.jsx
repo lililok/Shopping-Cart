@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Cart() {
+function Shop() {
 
     return (
       <>
@@ -9,4 +9,4 @@ function Cart() {
     )
   }
   
-  export default Cart
+  export default Shop
