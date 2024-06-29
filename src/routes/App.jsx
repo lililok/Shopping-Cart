@@ -1,17 +1,15 @@
-import { useState } from 'react'
-import { Link } from "react-router-dom";
+import Navbar from "../parts/Navbar.jsx";
 
 function App() {
-
   return (
     <>
-      <nav>
-        <Link to="/">Landing</Link>
-        <Link to="shop">Shop page</Link>
-        <Link to="cart">Cart page</Link>
-      </nav>
+      <Navbar />
+      <h1 className="text-red-500">
+        Hello world!
+      </h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
