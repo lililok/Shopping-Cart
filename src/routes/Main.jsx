@@ -1,16 +1,17 @@
 import Navbar from "../parts/Navbar.jsx";
 import Footer from "../parts/Footer.jsx";
 import Banner from "../parts/Banner.jsx";
+import { Outlet } from "react-router-dom";
 
-function App() {
+function Main() {
   return (
     <>
       <Navbar />
-      <Banner />
+      <Outlet />
       <Footer />
     </>
   );
 }
 
-export default App;
+export default Main;
 

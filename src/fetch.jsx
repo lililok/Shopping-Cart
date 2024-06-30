@@ -4,11 +4,13 @@ function storeData() {
     const [info, setInfo] = useState(null);
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/photos", { mode: "cors" })
+        fetch("https://fakestoreapi.com/products", { mode: "cors" })
           .then((response) => response.json())
-          .then((response) => setImageURL(response[0].url))
+          .then((response) => setInfo(response))
           .catch((error) => console.error(error));
       }, []);
+
+    return info;
 }
 
 export default storeData
