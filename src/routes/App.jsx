@@ -1,12 +1,13 @@
 import Navbar from "../parts/Navbar.jsx";
+import Footer from "../parts/Footer.jsx";
+import Banner from "../parts/Banner.jsx";
 
 function App() {
   return (
     <>
       <Navbar />
-      <h1 className="text-red-500">
-        Hello world!
-      </h1>
+      <Banner />
+      <Footer />
     </>
   );
 }
