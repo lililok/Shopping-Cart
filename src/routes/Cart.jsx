@@ -1,7 +1,10 @@
+import React, { useState } from 'react';
+import CartList from "../parts/CartList.jsx";
+
 function Cart() {
     return (
       <>
-      this is a cart
+      <CartList />
       </>
     )
   }

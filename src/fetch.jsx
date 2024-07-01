@@ -22,8 +22,7 @@ function storeData() {
       return { allData, top2Data };
 }
 
-/*filter by categories
-top 2 offers
+/*
 show how much items in cart currently*/
 
 export default storeData
