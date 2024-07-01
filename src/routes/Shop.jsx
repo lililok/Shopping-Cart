@@ -1,8 +1,10 @@
+import Cards from "../parts/Cards.jsx";
+
 function Shop() {
 
     return (
       <>
-      this is a shop
+      <Cards />
       </>
     )
   }
