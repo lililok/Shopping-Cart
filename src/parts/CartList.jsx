@@ -12,4 +12,6 @@ function CartList() {
     )
 }
 
+/*render, add, delete*/
+
 export default CartList

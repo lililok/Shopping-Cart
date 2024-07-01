@@ -15,7 +15,7 @@ function Banner() {
                     <h3 className='text-white text-xl mb-4'>Top Offer</h3>
                     <div className="flex space-x-4">
                     {top2Data.map((item) => (
-                        <Card key={item.id} image={item.image} title={item.title} price={item.price} />
+                        <Card key={item.id} product={item} />
                     ))}
                     </div>
                 </div>
@@ -26,5 +26,7 @@ function Banner() {
         </>
     )
 }
+
+/*num of items in cart*/
 
 export default Banner
