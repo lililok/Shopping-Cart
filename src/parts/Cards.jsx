@@ -7,7 +7,7 @@ function Cards() {
 
     return (
         <>
-          <div className="grid grid-flow-row gap-8 text-neutral-600 pd-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+          <div className="grid grid-flow-row justify-items-center gap-8 text-neutral-600 pd-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
             {allData.map((item) => (
               <Card key={item.id} product={item} />
             ))}
