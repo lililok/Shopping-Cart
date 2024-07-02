@@ -3,10 +3,14 @@ import Card from "./Card.jsx";
 
 
 function Checkout() {
+  const [cart, setCart] = useState(() => {
+    const cartLocalStorage = localStorage.getItem('cart');
+    return cartLocalStorage ? JSON.parse(cartLocalStorage) : [];
+  });
 
     return (
         <>
-          this is a checkout
+          <h3>Checkout</h3>
         </>
     )
 }
