@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import CartList from "../parts/CartList.jsx";
 import Checkout from "../parts/Checkout.jsx";
 
 function Cart() {
   return (
     <>
-      <h2>Your Cart</h2>
+    <div className='p-5'>
+      <h1 className='text-2xl mb-4'>Your Cart</h1>
       <Checkout/>
+    </div>
     </>
   );
 }

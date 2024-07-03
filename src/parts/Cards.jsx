@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from "./Card.jsx";
 import storeData from "../fetch.jsx";
+import { getItemQuantity, removeFromCart as removeItem, addToCart as addItem } from '../utils';
 
 function Cards() {
   const { allData } = storeData();
@@ -8,35 +9,6 @@ function Cards() {
     const cartLocalStorage = localStorage.getItem('cart');
     return cartLocalStorage ? JSON.parse(cartLocalStorage) : [];
   });
-  const [isCart, setIsCart] = useState(false);
-
-  const addToCart = (item) => {
-    setCart(prevItems => {
-      const existingItem = prevItems.find(cartItem => cartItem.id === item.id);
-      if (existingItem) {
-        return prevItems.map(cartItem =>
-          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-        );
-      } else {
-        return [...prevItems, { ...item, quantity: 1 }];
-      }
-    });
-  };
-
-  const removeFromCart = (item) => {
-    setCart(prevItems => {
-      return prevItems.reduce((acc, cartItem) => {
-        if (cartItem.id === item.id) {
-          if (cartItem.quantity > 1) {
-            acc.push({ ...cartItem, quantity: cartItem.quantity - 1 });
-          }
-        } else {
-          acc.push(cartItem);
-        }
-        return acc;
-      }, []);
-    });
-  };
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -44,28 +16,27 @@ function Cards() {
     window.dispatchEvent(event);
 }, [cart]);
 
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+  const removeFromCart = (item) => {
+    setCart(prevCart => removeItem(prevCart, item));
+  };
 
-  const getItemQuantity = (itemId) => {
-    const item = cart.find(cartItem => cartItem.id === itemId);
-    return item ? item.quantity : 0;
+  const addToCart = (item) => {
+    setCart(prevCart => addItem(prevCart, item));
   };
 
   return (
-    <div className="grid grid-flow-row justify-items-center gap-8 text-neutral-600 p-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+    <div className="grid grid-flow-row gap-3 text-neutral-600 p-6 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
       {allData.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="flex flex-col items-center gap-3">
           <Card product={item} />
-          {getItemQuantity(item.id) > 0 ? (
-            <div>
-              <button onClick={() => removeFromCart(item)}>-</button>
-              <span>{getItemQuantity(item.id)}</span>
-              <button onClick={() => addToCart(item)}>+</button>
+          {getItemQuantity(cart, item.id) > 0 ? (
+            <div className="shadow-md p-3 rounded-lg border border-gray-100 flex items-center">
+              <button onClick={() => removeFromCart(item)} className="mr-3">-</button>
+              <span>{getItemQuantity(cart, item.id)}</span>
+              <button onClick={() => addToCart(item)} className="ml-3">+</button>
             </div>
           ) : (
-            <button onClick={() => addToCart(item)}>Add to cart</button>
+            <button onClick={() => addToCart(item)} className="shadow-md p-3 rounded-lg border border-gray-100">Add to cart</button>
           )}
         </div>
       ))}
@@ -73,4 +44,4 @@ function Cards() {
   );
 }
 
-export default Cards
+export default Cards;

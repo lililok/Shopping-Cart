@@ -25,16 +25,16 @@ function Navbar() {
     }, []);
 
     return (
-        <nav className="flex items-center bg-teal-500 p-6 justify-between">
+        <nav className="flex items-center p-6 justify-between bg-violet-600">
             <div className="flex items-center flex-shrink-0 text-white">
                 <span className="font-semibold text-xl tracking-tight">
                     <Link to="/">Couture Corner</Link>
                 </span>
             </div>
             <div>
-                <Link to="/shop" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Shop</Link>
-                <Link to="/cart" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                    Cart {totalQuantity()}
+                <Link to="/shop" className="block mt-4 lg:inline-block lg:mt-0 text-violet-200 hover:text-white mr-4">Shop</Link>
+                <Link to="/cart" className="block mt-4 lg:inline-block lg:mt-0 text-violet-200 hover:text-white mr-4">
+                    Cart ({totalQuantity()})
                 </Link>
             </div>
         </nav>
