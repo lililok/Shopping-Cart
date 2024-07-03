@@ -15,9 +15,9 @@ function CartList() {
   }, []);
 
   return (
-    <div className="cart">
+    <div className="flex items-center">
       {cart.length === 0 && <p>empty</p>}
-      <ul>
+      <ul className="flex items-center">
         {cart.map((item) => (
           <li key={item.id}>
             <Card product={item} />
