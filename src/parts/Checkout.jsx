@@ -48,7 +48,7 @@ function Checkout() {
         ))}
       </div>
       <div className='text-xl mt-4'>Total: ${totalPrice().toFixed(2)}</div>
-      <button onClick={handleConfirm} className="px-8 py-4 text-lg bg-yellow-400 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full mt-10">Confirm</button>
+      <button onClick={handleConfirm} className="px-8 py-4 text-lg bg-yellow-400 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full mt-10">Purchase</button>
     </>
   );
 }
